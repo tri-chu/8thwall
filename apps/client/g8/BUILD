@@ -96,7 +96,7 @@ cc_library(
         "g8-old.h",
     ],
     linkopts = select({
-        "@niantic//bzl/conditions:osx": [
+        "//bzl/conditions:osx": [
             "-framework Security",
         ],
         "//conditions:default": [],
