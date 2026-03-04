@@ -28,7 +28,7 @@ cc_end(0x276f037c);
 #include <regex>
 #include <thread>
 
-#include "apps/client/g8/gitlab-service.h"
+#include "apps/g8/gitlab-service.h"
 #include "c8/c8-log.h"
 #include "c8/exceptions.h"
 #include "c8/network/fetch.h"

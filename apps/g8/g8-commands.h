@@ -1,6 +1,6 @@
 #include <CLI/CLI.hpp>
 
-#include "apps/client/g8/g8-helpers.h"
+#include "apps/g8/g8-helpers.h"
 
 CLI::App_p keepHouseCmd(MainContext &);
 CLI::App_p inspectCmd(MainContext &);

@@ -17,8 +17,8 @@ cc_library {
 }
 cc_end(0x1f609a6e);
 
-#include "apps/client/g8/g8-helpers.h"
-#include "apps/client/g8/g8-plumbing.h"
+#include "apps/g8/g8-helpers.h"
+#include "apps/g8/g8-plumbing.h"
 #include "c8/git/g8-git.h"
 #include "c8/string.h"
 

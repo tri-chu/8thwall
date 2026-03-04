@@ -31,7 +31,7 @@ cc_end(0xf3cb6c4d);
 #include <string>
 #include <vector>
 
-#include "apps/client/g8/g8-helpers.h"
+#include "apps/g8/g8-helpers.h"
 #include "c8/git/g8-api.capnp.h"
 #include "c8/git/g8-git.h"
 #include "c8/io/file-io.h"

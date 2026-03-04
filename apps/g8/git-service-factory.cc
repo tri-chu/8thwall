@@ -14,9 +14,9 @@ cc_library {
 }
 cc_end(0x2434bd4b);
 
-#include "apps/client/g8/git-service-factory.h"
-#include "apps/client/g8/github-service.h"
-#include "apps/client/g8/gitlab-service.h"
+#include "apps/g8/git-service-factory.h"
+#include "apps/g8/github-service.h"
+#include "apps/g8/gitlab-service.h"
 #include "c8/c8-log.h"
 
 namespace c8 {

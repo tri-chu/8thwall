@@ -119,10 +119,10 @@ const runDeploy = async () => {
   // Build a new version of g8.
   console.log('Building g8.')
   // eslint-disable-next-line max-len
-  await exec('bazel build //apps/client/g8:g8 -c opt --platforms=//bzl:osx_universal ' +
+  await exec('bazel build //apps/g8:g8 -c opt --platforms=//bzl:osx_universal ' +
     '--copt=-mmacos-version-min=11.0 --linkopt=-mmacos-version-min=11.0 ' +
-    `--//apps/client/g8:version=${nextVersion}`)
-  await exec(`cp ${workspace}/bazel-bin/apps/client/g8/g8 ${tmpDir}`)
+    `--//apps/g8:version=${nextVersion}`)
+  await exec(`cp ${workspace}/bazel-bin/apps/g8/g8 ${tmpDir}`)
 
   console.log('Building auth8.')
   // eslint-disable-next-line max-len
@@ -149,7 +149,7 @@ const runDeploy = async () => {
       `ljxhhh7u/{inliner.py,parse-build-rules,parse-build-rules-sh} ${tmpDir}`)
   }
 
-  await exec(`cp ${workspace}/apps/client/g8/_g8 ${tmpDir}`)
+  await exec(`cp ${workspace}/apps/g8/_g8 ${tmpDir}`)
 
   await exec(`open ${tmpDir}`)
 

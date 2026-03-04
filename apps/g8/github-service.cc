@@ -22,7 +22,7 @@ cc_end(0xd8e18820);
 
 #include <regex>
 
-#include "apps/client/g8/github-service.h"
+#include "apps/g8/github-service.h"
 #include "c8/c8-log.h"
 #include "c8/process.h"
 #include "c8/string/strcat.h"

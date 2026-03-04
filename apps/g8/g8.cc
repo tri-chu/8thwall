@@ -22,10 +22,10 @@ cc_end(0xe523a729);
 
 #include <sys/resource.h>
 
-#include "apps/client/g8/g8-commands.h"
-#include "apps/client/g8/g8-config.h"
-#include "apps/client/g8/g8-helpers.h"
-#include "apps/client/g8/g8-old.h"
+#include "apps/g8/g8-commands.h"
+#include "apps/g8/g8-config.h"
+#include "apps/g8/g8-helpers.h"
+#include "apps/g8/g8-old.h"
 #include "c8/c8-log.h"
 #include "c8/map.h"
 #include "c8/stats/export-detail.h"

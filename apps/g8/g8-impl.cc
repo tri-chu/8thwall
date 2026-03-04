@@ -35,9 +35,9 @@ cc_end(0x58dcd2ac);
 #include <ctime>
 #include <string_view>
 
-#include "apps/client/g8/g8-helpers.h"
-#include "apps/client/g8/g8-impl.h"
-#include "apps/client/g8/g8-plumbing.h"
+#include "apps/g8/g8-helpers.h"
+#include "apps/g8/g8-impl.h"
+#include "apps/g8/g8-plumbing.h"
 #include "c8/c8-log.h"
 #include "c8/exceptions.h"
 #include "c8/git/g8-api.capnp.h"

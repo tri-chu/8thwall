@@ -58,9 +58,9 @@ cc_end(0x0980e395);
 #include <string>
 #include <vector>
 
-#include "apps/client/g8/g8-helpers.h"
-#include "apps/client/g8/g8-plumbing.h"
-#include "apps/client/g8/git-service-factory.h"
+#include "apps/g8/g8-helpers.h"
+#include "apps/g8/g8-plumbing.h"
+#include "apps/g8/git-service-factory.h"
 #include "c8/c8-log.h"
 #include "c8/git/g8-api.capnp.h"
 #include "c8/git/g8-git.h"

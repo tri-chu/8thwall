@@ -1,6 +1,6 @@
 #pragma once
 
-#include "apps/client/g8/g8-helpers.h"
+#include "apps/g8/g8-helpers.h"
 #include "c8/string.h"
 
 void keepHouseImpl(MainContext &ctx);

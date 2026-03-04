@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "apps/client/g8/git-service-interface.h"
+#include "apps/g8/git-service-interface.h"
 #include "c8/map.h"
 #include "nlohmann/json.hpp"
 

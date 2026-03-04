@@ -16,8 +16,8 @@ cc_library {
 }
 cc_end(0xa5b56bff);
 
-#include "apps/client/g8/g8-commands.h"
-#include "apps/client/g8/g8-impl.h"
+#include "apps/g8/g8-commands.h"
+#include "apps/g8/g8-impl.h"
 #include "c8/process.h"
 #include "c8/stats/scope-timer.h"
 #include "c8/vector.h"
