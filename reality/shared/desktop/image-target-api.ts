@@ -65,6 +65,8 @@ type CropResult =
 
 const LIST_PATH = '/list'
 const TEXTURE_PATH = '/texture'
+const TARGET_PATH = '/target'
+const UPLOAD_PATH = '/upload'
 
 type ListTargetsParams = {
   appKey: string
@@ -84,9 +86,26 @@ type GetTargetTextureParams = {
   v?: string  // Optional, to bust the cache
 }
 
+type UploadTargetParams = {
+  appKey: string
+  name: string
+  crop: string  // JSON encoded CropResult
+}
+
+type UploadTargetResponse = {
+  target: ImageTargetData
+}
+
+type UpdateTargetParams = {
+  appKey: string
+  name: string
+}
+
 export {
   LIST_PATH,
   TEXTURE_PATH,
+  TARGET_PATH,
+  UPLOAD_PATH,
 }
 
 export type {
@@ -95,4 +114,8 @@ export type {
   ListTargetsResponse,
   GetTargetTextureParams,
   TargetTextureType,
+  UploadTargetParams,
+  UpdateTargetParams,
+  UploadTargetResponse,
+  CropResult,
 }
