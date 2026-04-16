@@ -3,14 +3,14 @@ import {useQuery, useQueryClient, useSuspenseQuery} from '@tanstack/react-query'
 
 import {
   CropResult, GetTargetTextureParams, ImageTargetData, TargetTextureType,
-  TEXTURE_PATH,
+  TEXTURE_PATH, UpdateTargetRequest,
 } from '@repo/reality/shared/desktop/image-target-api'
 
 import type {DeepReadonly} from 'ts-essentials'
 
 import {useEnclosedAppKey} from '../apps/enclosed-app-context'
 import {
-  listImageTargets, uploadImageTarget, deleteImageTarget,
+  listImageTargets, uploadImageTarget, deleteImageTarget, updateImageTarget,
 } from './image-target-api'
 import {selectTargetsGalleryFilterOptions} from './state-selectors'
 import {useSelector} from '../hooks'
@@ -40,9 +40,9 @@ const expandTargetData = (appKey: string, target: ImageTargetData): IImageTarget
   geometryTextureImageSrc: makeImageTargetTextureUrl(appKey, target, 'geometry'),
   thumbnailImageSrc: makeImageTargetTextureUrl(appKey, target, 'thumbnail'),
   uuid: target.name,
-  userMetadata: typeof target.metadata === 'string'
+  userMetadata: target.metadata && (typeof target.metadata === 'string'
     ? target.metadata
-    : JSON.stringify(target.metadata),
+    : JSON.stringify(target.metadata, null, 2)),
   userMetadataIsJson: typeof target.metadata !== 'string',
   status: 'DISABLED',
   createdAt: new Date(target.created).toString(),
@@ -111,9 +111,15 @@ const useImageTargetActions = () => {
       return expandTargetData(appKey, target)
     }
 
+    const update = async (name: string, data: UpdateTargetRequest) => {
+      await updateImageTarget(appKey, name, data)
+      refresh()
+    }
+
     return {
       uploadImageTarget: upload,
       deleteImageTarget: deleteTarget,
+      updateImageTarget: update,
       refresh,
     }
   }, [appKey, client])

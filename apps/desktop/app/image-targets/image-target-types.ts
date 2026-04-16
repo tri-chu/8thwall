@@ -68,10 +68,17 @@ const DeleteTargetParams = z.object({
   name: z.string().nonempty(),
 })
 
+const UpdateTargetRequest = z.object({
+  // TODO(christoph): Update name
+  // TODO(christoph): Update crop/geometry properties
+  metadata: z.unknown(),
+}).partial()
+
 export {
   ListTargetsParams,
   GetTextureParams,
   CropResult,
   UploadTargetParams,
   DeleteTargetParams,
+  UpdateTargetRequest,
 }
