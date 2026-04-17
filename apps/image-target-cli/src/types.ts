@@ -13,7 +13,7 @@ type ReferencedResources = {
 
 type ImageTargetData = CropResult & {
   imagePath: string
-  metadata: null
+  metadata: unknown
   name: string
   resources: ReferencedResources
   created: number
@@ -36,7 +36,7 @@ type CylinderCropGeometry = CropGeometry & {
   cylinderCircumferenceBottom: number
   arcAngle: number
   coniness: number
-  inputMode: 'ADVANCED'
+  inputMode: 'ADVANCED' | 'BASIC'
   unit: 'mm' | 'in'
 }
 
