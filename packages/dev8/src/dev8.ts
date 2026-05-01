@@ -18,7 +18,6 @@ import {createGeolocationIntercept} from './xrsimulator/geolocation-methods'
 
 declare global {
   interface Window {
-    Modules8: any
     XR8: any
     THREE: any
     AFRAME: any
@@ -385,20 +384,6 @@ const startWebSocket = () => {
       }
     } else if (msg.action === 'EVAL') {
       console.log(eval(msg.cmd))
-    } else if (msg.action === 'MODULE_CONFIG_UPDATE') {
-      try {
-        window.Modules8.getModule({moduleId: msg.moduleId}).config.update(msg.newConfig)
-        console.log(msg.updateMsg)
-      } catch {
-        // Nothing
-      }
-    } else if (msg.action === 'MODULE_CONFIG_RESET') {
-      try {
-        window.Modules8.getModule({moduleId: msg.moduleId}).config.reset(msg.configFieldName)
-        console.log(msg.updateMsg)
-      } catch {
-        // Nothing
-      }
     } else if (msg.action === 'SET_ATTRIBUTE') {
       document.querySelector(`#${msg.id}`)?.setAttribute(msg.attr, msg.val)
     } else if (msg.action === 'DEBUG_HUD') {
