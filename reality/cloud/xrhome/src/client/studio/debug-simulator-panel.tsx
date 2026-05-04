@@ -27,6 +27,7 @@ import {useActiveSpace} from './hooks/active-space'
 import {useProjectPreviewUrl} from '../editor/app-preview/use-project-preview-url'
 import {StandardLink} from '../ui/components/standard-link'
 import {usePlaybackContext} from './playback-context'
+import {useRemoteScene} from './hooks/remote-scene'
 
 const LOADING_SCREEN_DISAPPEAR_DELAY = 200
 
@@ -130,7 +131,10 @@ const DebugSimulatorPanel: React.FC<IDebugSimulatorPanel> = ({simulatorId}) => {
     [derivedScene, simulatorState.imageTargetName]
   )
 
-  const debugStatus: string = 'todo'
+  const {status: debugStatus} = useRemoteScene({
+    inlineSimulatorId: simulatorId,
+    baseScene: ctx.scene,
+  })
   // NOTE(christoph): The 'attached-confirmed' state is entered after ECS_ATTACH_CONFIRM is
   // received, which is only sent by a newer version dev8. As a fallback, either in the case of a
   // crash, or an old version of dev8, we hide the loading screen after a delay.
