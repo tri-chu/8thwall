@@ -7,8 +7,6 @@ import {Trans, useTranslation} from 'react-i18next'
 
 import type {ProjectClientSide} from '../../shared/desktop/local-sync-types'
 import {getLocalStudioPath} from './desktop-paths'
-import {deriveAppCoverImageUrl} from '../../shared/app-utils'
-import {COVER_IMAGE_PREVIEW_SIZES} from '../../shared/app-constants'
 import {SpaceBetween} from '../ui/layout/space-between'
 import {combine} from '../common/styles'
 import {ProjectListItemOptions} from './project-list-item-options'
@@ -21,6 +19,7 @@ import {basename} from '../editor/editor-common'
 import {createThemedStyles} from '../ui/theme'
 import {StandardLink} from '../ui/components/standard-link'
 import {Icon} from '../ui/components/icon'
+import coverImg from '../static/cover-image.png'
 
 const useStyles = createThemedStyles(theme => ({
   projectListItem: {
@@ -106,6 +105,14 @@ interface IProjectListItem {
   project: ProjectClientSide & {appKey: string}
 }
 
+const HUE_ROTATE_VALUES = [
+  0,
+  85,
+  120,
+  200,
+  280,
+]
+
 const ProjectListItem: React.FC<IProjectListItem> = ({project}) => {
   const classes = useStyles()
   const {t} = useTranslation(['studio-desktop-pages'])
@@ -114,6 +121,15 @@ const ProjectListItem: React.FC<IProjectListItem> = ({project}) => {
   const [targetLocation, setTargetLocation] = React.useState<string>('')
   const [isMigrateModalOpen, setIsMigrateModalOpen] = React.useState(false)
   const history = useHistory()
+
+  const coverStyle = React.useMemo(() => {
+    let roughHash = 0
+    for (let i = 0; i < project.location.length; i++) {
+      roughHash += project.location.charCodeAt(i)
+    }
+    const degrees = HUE_ROTATE_VALUES[Math.floor(roughHash % HUE_ROTATE_VALUES.length)]
+    return {filter: `hue-rotate(${degrees}deg)`}
+  }, [project.location])
 
   const onClose = () => {
     setIsMovingAppModalOpen(false)
@@ -141,7 +157,8 @@ const ProjectListItem: React.FC<IProjectListItem> = ({project}) => {
             <img
               className={classes.coverImage}
               draggable={false}
-              src={deriveAppCoverImageUrl(null, COVER_IMAGE_PREVIEW_SIZES[600])}
+              src={coverImg}
+              style={coverStyle}
               alt=''
             />
             <div className={classes.textContainer}>
