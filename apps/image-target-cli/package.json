@@ -8,7 +8,7 @@
   },
   "type": "module",
   "scripts": {
-    "test": "npx tsc -P tsconfig.json && node --test src/*.test.js"
+    "test": "npx tsc -P tsconfig.json && node --test src/*.test.js && ./test/all.sh"
   },
   "homepage": "https://8thwall.org",
   "bugs": {

@@ -371,18 +371,6 @@ js_library(
     srcs = [
         "sync-session.ts",
     ],
-    deps = [
-        "//c8/ecs/src/runtime:index",
-        "//c8/ecs/src/runtime:world",
-        "//c8/ecs/src/shared:application-type",
-        "//c8/ecs/src/shared:data",
-        "//c8/ecs/src/shared:debug-messaging",
-        "//c8/ecs/src/shared:object-hierarchy",
-        "//c8/ecs/src/shared:scene-graph",
-        "//c8/ecs/src/shared:schema",
-        "//c8/ecs/src/shared:transform-map",
-        "//c8/ecs/src/shared:world-to-scene-graph",
-    ],
 )
 
 js_library(
@@ -575,18 +563,10 @@ js_test(
     ],
 )
 
-genrule(
-    name = "automerge-gen",
-    outs = [
-        "automerge.js",
-    ],
-    cmd = "echo \"module.exports = require('@automerge/automerge/next')\" > $@",
-)
-
 js_library(
     name = "automerge",
     srcs = [
-        ":automerge-gen",
+        "automerge.ts",
     ],
 )
 

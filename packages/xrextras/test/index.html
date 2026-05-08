@@ -1,19 +1,16 @@
 <!doctype html>
 <html>
-  <head>
-    <title>XRExtras: Camera Pipeline</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-    <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
-         See github.com/8thwall/web/tree/master/xrextras -->
-    <script src="external/xrextras/xrextras.js"></script>
+<head>
+  <title>XRExtras: Camera Pipeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <script src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js" async crossorigin="anonymous"></script>
+  <script src="/xrextras.js"></script>
+</head>
 
-    <!-- 8thWall Web - Replace the app key here with your own app key -->
-    <script async src="https://apps.8thwall.com/xrweb?appKey=XXXXXXXX"></script>
+<body>
+  <canvas id="camerafeed"></canvas>
+  <script src="index.js"></script>
+</body>
 
-    <script src="index.js"></script>
-  </head>
-  <body>
-    <canvas id="camerafeed"></canvas>
-  </body>
 </html>

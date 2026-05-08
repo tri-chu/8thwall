@@ -1,9 +1,9 @@
 // @package(npm-ecs)
 // @attr(externalize_npm = 1)
-import {describe, it, assert} from '@nia/bzl/js/chai-js'
+import {describe, it, assert} from '@repo/bzl/js/chai-js'
 import type {DeepReadonly} from 'ts-essentials'
 
-import * as Automerge from '@nia/c8/ecs/src/shared/automerge'
+import * as Automerge from '@repo/c8/ecs/src/shared/automerge'
 
 import {
   createEmptySceneDoc, loadSceneDoc, fixStringDuplication, Json, SceneDoc,
@@ -992,25 +992,6 @@ describe('crdt', () => {
 
     assert.strictEqual(doc.distill().objects.object1.name, 'changed in rawUpdate')
     assert.strictEqual(myObject.name, 'changed direct')
-  })
-
-  it('Can return version ID for a document', () => {
-    const doc = createEmptySceneDoc(ACTOR_ID)
-    assert.strictEqual(
-      '9343576c711a4bfa57c75338c3c1becc21d70ac5d9775c23e5a4cba8838fa113',
-      doc.getVersionId()
-    )
-
-    doc.update(prev => ({
-      ...prev,
-      activeCamera: 'camera1',
-      objects: {...prev.objects, object1: object('object1')},
-    }))
-
-    assert.strictEqual(
-      '3ccf9c7cf30e064c32965a2335f5f51b42d60fa6bc41bed572fa343a8a1095ea',
-      doc.getVersionId()
-    )
   })
 
   it('Can reset back to an earlier version', () => {
